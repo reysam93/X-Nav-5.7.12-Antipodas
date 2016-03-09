@@ -1,25 +1,35 @@
 <html>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 	<head>
  		<title>Las Antipodas</title>
+ 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+ 		<link href="bootstrap.min.css" rel="stylesheet">
 		<style>
-			#map {
+			#map, #antipoda {
 				width:500px;
-				height: 400px;
+				height: 500px;
 			}
  		</style>
  	</head>
-	<body>
-        	<p id='map'></p>
-  	        <script type="text/javascript" charset="utf-8">
-            function initMap(){
-                var mapDiv = document.getElementById("map");
-				var map = new google.maps.Map(mapDiv, {
-					center: {lat: 40.283743650362996, lng: -3.8191530513763428},
-					zoom: 15
-				});
- 			}
- 		</script>
+	<body onload="checkGeolocation()">
+			<p id="notSupported"></p>
+			<div id=maps>
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-4">
+					<h3>Tu posición actual</h3>
+	        		<p id='map'></p>
+	        	</div>
+	        	<div class="col-md-2">
+				</div>
+	        	<div class="col-md-4">
+	        		<h3>Tu posición en las antípodas</h3>
+	        		<p id="antipoda"></p>
+	        	</div>
+	        	<div class="col-md-1">
+				</div>
+        	</div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 		<script src = "https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+		<script type="text/javascript" src="maps.js"></script>
 	</body>
 </html>
